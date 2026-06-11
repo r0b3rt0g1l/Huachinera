@@ -14,6 +14,9 @@
   --color-guinda-soft: #10B981;
   --color-dorado: #0891B2;
   --color-dorado-soft: #06B6D4;
+  /* Variante oscura del acento para TEXTO sobre fondos claros: cyan-700
+     (~4.7:1 sobre blanco = AA normal). La usan badges de sevac/turismo/leyes. */
+  --color-dorado-700: #0E7490;
 
   /* Botones CTA primarios (Home Hero, "Descubre el turismo", "Ver todas las
      acciones", "Ir al Hub de Transparencia"). Separado del --color-dorado

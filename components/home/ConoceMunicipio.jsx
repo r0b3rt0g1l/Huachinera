@@ -254,9 +254,9 @@ export function ConoceMunicipio({ portadaUrl } = {}) {
               />
               Datos del municipio
             </p>
-            <h3 className="mt-3 font-display text-2xl font-bold tracking-tight text-white md:text-3xl">
+            <h2 className="mt-3 font-display text-2xl font-bold tracking-tight text-white md:text-3xl">
               {municipalConfig.identidad.nombreCorto} en datos
-            </h3>
+            </h2>
           </header>
 
           <motion.dl

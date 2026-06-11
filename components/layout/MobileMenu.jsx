@@ -183,7 +183,7 @@ export function MobileMenu() {
                     </Link>
                   ) : (
                     <p className="mt-3 rounded-lg border border-dashed border-[var(--color-border)] bg-[var(--color-bg)] px-4 py-3 text-xs italic text-[var(--color-text-muted)]">
-                      TODO_MUNICIPIO: redes_sociales — URL oficial pendiente.
+                      Pronto compartiremos nuestros canales oficiales.
                     </p>
                   )}
                 </div>

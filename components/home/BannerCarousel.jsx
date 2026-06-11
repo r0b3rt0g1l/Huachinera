@@ -62,6 +62,9 @@ export function BannerCarousel({ items = [] }) {
   useEffect(() => {
     if (!emblaApi) return;
     const onSelect = () => setSelectedIndex(emblaApi.selectedScrollSnap());
+    // Sync inicial del carrusel embla (sistema externo): se lee su snapshot al
+    // montar y se suscribe a "select"/"reInit". Patrón idiomático de embla.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setSnaps(emblaApi.scrollSnapList());
     onSelect();
     emblaApi.on("select", onSelect);

@@ -1,4 +1,4 @@
-import { ShieldCheck, Building2, Mail, Phone } from "lucide-react";
+import { ShieldCheck, Building2 } from "lucide-react";
 import { buildMetadata } from "@/lib/seo";
 import { municipalConfig } from "@/lib/municipalConfig";
 import { InformacionPublicaForm } from "@/components/transparencia/InformacionPublicaForm";
@@ -83,35 +83,8 @@ export default function InformacionPublicaPage() {
                   {contacto.direccionCompleta}
                 </span>
               </li>
-              <li className="flex items-start gap-2.5">
-                <Phone
-                  aria-hidden="true"
-                  className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-guinda)]"
-                />
-                <span className="leading-tight text-[var(--color-text-secondary)]">
-                  {contacto.telefonos.map((tel) => (
-                    <a
-                      key={tel}
-                      href={`tel:${tel.replace(/\s+/g, "")}`}
-                      className="block hover:text-[var(--color-guinda)] hover:underline"
-                    >
-                      {tel}
-                    </a>
-                  ))}
-                </span>
-              </li>
-              <li className="flex items-start gap-2.5">
-                <Mail
-                  aria-hidden="true"
-                  className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-guinda)]"
-                />
-                <a
-                  href={`mailto:${contacto.email}`}
-                  className="text-[var(--color-text-secondary)] hover:text-[var(--color-guinda)] hover:underline"
-                >
-                  {contacto.email}
-                </a>
-              </li>
+              {/* Política Northa: sin tel:/mailto:. Las solicitudes se hacen por
+                  el formulario de esta página o la Plataforma Nacional. */}
             </ul>
             <p className="mt-5 rounded-lg bg-[var(--color-bg)] p-3 text-xs leading-relaxed text-[var(--color-text-muted)]">
               Datos del titular de la Unidad de Transparencia pendientes de

@@ -1,33 +1,28 @@
 import Link from "next/link";
-import { MapPin, Phone, Mail, Clock, Facebook } from "lucide-react";
+import { MapPin, Clock, Facebook } from "lucide-react";
 import { municipalConfig } from "@/lib/municipalConfig";
 
 export function ContactoInfo() {
-  const { contacto, datos, redes } = municipalConfig;
+  const { contacto, redes } = municipalConfig;
 
+  // PRIVACIDAD (política Northa): NO se publican teléfono ni correo. El canal de
+  // contacto es el formulario de esta misma página. Solo se muestran datos
+  // públicos del edificio (dirección y, si existen, horarios).
   const items = [
     {
       icon: MapPin,
       label: "Dirección",
       value: contacto.direccionCompleta,
     },
-    {
-      icon: Phone,
-      label: "Teléfono",
-      phones: contacto.telefonos,
-      legendSecondary: datos.lada ? `Lada ${datos.lada}` : null,
-    },
-    {
-      icon: Mail,
-      label: "Correo electrónico",
-      value: contacto.email,
-      href: `mailto:${contacto.email}`,
-    },
-    {
-      icon: Clock,
-      label: "Horarios de atención",
-      value: contacto.horarios,
-    },
+    ...(contacto.horarios
+      ? [
+          {
+            icon: Clock,
+            label: "Horarios de atención",
+            value: contacto.horarios,
+          },
+        ]
+      : []),
   ];
 
   return (
@@ -49,58 +44,9 @@ export function ContactoInfo() {
                 <p className="text-[10px] font-semibold uppercase tracking-widest text-[var(--color-text-muted)]">
                   {item.label}
                 </p>
-                {item.phones ? (
-                  <div className="mt-1 space-y-0.5">
-                    {item.phones.map((tel) => {
-                      const isPending =
-                        typeof tel === "string" &&
-                        tel.startsWith("[PENDIENTE");
-                      return isPending ? (
-                        <p
-                          key={tel}
-                          className="block text-sm font-medium italic text-[var(--color-text-muted)]"
-                        >
-                          {tel}
-                        </p>
-                      ) : (
-                        <a
-                          key={tel}
-                          href={`tel:${tel.replace(/\s+/g, "")}`}
-                          className="block text-sm font-medium text-[var(--color-text)] hover:text-[var(--color-guinda)] hover:underline"
-                        >
-                          {tel}
-                        </a>
-                      );
-                    })}
-                    {item.legendSecondary && (
-                      <p className="text-xs text-[var(--color-text-muted)]">
-                        {item.legendSecondary}
-                      </p>
-                    )}
-                  </div>
-                ) : item.href &&
-                  !(
-                    typeof item.value === "string" &&
-                    item.value.startsWith("[PENDIENTE")
-                  ) ? (
-                  <a
-                    href={item.href}
-                    className="mt-1 block text-sm font-medium text-[var(--color-text)] hover:text-[var(--color-guinda)] hover:underline"
-                  >
-                    {item.value}
-                  </a>
-                ) : (
-                  <p
-                    className={`mt-1 text-sm font-medium ${
-                      typeof item.value === "string" &&
-                      item.value.startsWith("[PENDIENTE")
-                        ? "italic text-[var(--color-text-muted)]"
-                        : "text-[var(--color-text)]"
-                    }`}
-                  >
-                    {item.value}
-                  </p>
-                )}
+                <p className="mt-1 text-sm font-medium text-[var(--color-text)]">
+                  {item.value}
+                </p>
               </div>
             </li>
           ))}
@@ -136,7 +82,7 @@ export function ContactoInfo() {
           </Link>
         ) : (
           <p className="mt-5 rounded-xl border border-dashed border-white/20 bg-white/5 p-3 text-xs italic text-[var(--color-cream)]/60">
-            TODO_MUNICIPIO: redes_sociales — URL oficial pendiente.
+            Pronto compartiremos nuestros canales oficiales.
           </p>
         )}
       </div>

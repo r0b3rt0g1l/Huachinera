@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { UserRound, Mail, Phone } from "lucide-react";
+import { UserRound } from "lucide-react";
 
 export function RegidorCard({ regidor }) {
   if (!regidor) return null;
@@ -40,24 +40,8 @@ export function RegidorCard({ regidor }) {
         </p>
       </div>
 
-      <ul className="flex flex-col items-center gap-1 text-[12px] text-[var(--color-text-muted)]">
-        {regidor.email && (
-          <li className="inline-flex items-center gap-1.5">
-            <Mail aria-hidden="true" className="h-3.5 w-3.5 text-[var(--color-guinda)]" />
-            <a href={`mailto:${regidor.email}`} className="truncate hover:text-[var(--color-guinda)]">
-              {regidor.email}
-            </a>
-          </li>
-        )}
-        {regidor.telefono && (
-          <li className="inline-flex items-center gap-1.5">
-            <Phone aria-hidden="true" className="h-3.5 w-3.5 text-[var(--color-guinda)]" />
-            <a href={`tel:${regidor.telefono}`} className="hover:text-[var(--color-guinda)]">
-              {regidor.telefono}
-            </a>
-          </li>
-        )}
-      </ul>
+      {/* Política Northa: cero contacto directo (sin mailto:/tel:). El portal
+          nunca publica correo/teléfono de funcionarios; ver lib/cms.js. */}
     </motion.article>
   );
 }

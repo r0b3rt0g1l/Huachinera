@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Mail, Phone, UserRound, Award } from "lucide-react";
+import { UserRound, Award } from "lucide-react";
 import { municipalConfig } from "@/lib/municipalConfig";
 
 export function PresidenteCard({ presidente }) {
@@ -52,38 +52,8 @@ export function PresidenteCard({ presidente }) {
           </p>
         </div>
 
-        {(presidente.email || presidente.telefono) && (
-          <ul className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 pt-2 text-sm text-white/85">
-            {presidente.email && (
-              <li className="inline-flex items-center gap-2">
-                <Mail
-                  aria-hidden="true"
-                  className="h-[18px] w-[18px] text-[var(--color-dorado)]"
-                />
-                <a
-                  href={`mailto:${presidente.email}`}
-                  className="hover:text-white hover:underline"
-                >
-                  {presidente.email}
-                </a>
-              </li>
-            )}
-            {presidente.telefono && (
-              <li className="inline-flex items-center gap-2">
-                <Phone
-                  aria-hidden="true"
-                  className="h-[18px] w-[18px] text-[var(--color-dorado)]"
-                />
-                <a
-                  href={`tel:${presidente.telefono}`}
-                  className="hover:text-white hover:underline"
-                >
-                  {presidente.telefono}
-                </a>
-              </li>
-            )}
-          </ul>
-        )}
+        {/* Política Northa: cero contacto directo (sin mailto:/tel:). El portal
+            nunca publica correo/teléfono de funcionarios; ver lib/cms.js. */}
       </div>
     </motion.article>
   );

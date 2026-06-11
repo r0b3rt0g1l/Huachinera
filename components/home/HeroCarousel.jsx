@@ -24,8 +24,6 @@ const ALIGN_CLASSES = {
 };
 
 export function HeroCarousel({ slides }) {
-  if (!slides || slides.length === 0) return null;
-
   const heroRef = useRef(null);
   const reduce = useReducedMotion();
 
@@ -60,6 +58,9 @@ export function HeroCarousel({ slides }) {
   useEffect(() => {
     if (!emblaApi) return;
     const onSelect = () => setSelectedIndex(emblaApi.selectedScrollSnap());
+    // Sync inicial del carrusel embla (sistema externo): se lee su snapshot al
+    // montar y se suscribe a "select"/"reInit". Patrón idiomático de embla.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setSnaps(emblaApi.scrollSnapList());
     onSelect();
     emblaApi.on("select", onSelect);
@@ -69,6 +70,10 @@ export function HeroCarousel({ slides }) {
       emblaApi.off("reInit", onSelect);
     };
   }, [emblaApi]);
+
+  // Guard DESPUÉS de los hooks (rules-of-hooks): los hooks corren siempre; si no
+  // hay slides no renderizamos. En la práctica `slides` siempre trae fallback.
+  if (!slides || slides.length === 0) return null;
 
   const activeSlide = slides[selectedIndex];
 

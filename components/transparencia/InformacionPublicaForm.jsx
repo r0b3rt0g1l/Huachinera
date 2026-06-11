@@ -60,7 +60,7 @@ export function InformacionPublicaForm({ accessKey }) {
   };
 
   const inputClasses =
-    "w-full rounded-lg border border-[var(--color-border)] bg-white px-4 py-3 text-sm text-[var(--color-text)] outline-none transition placeholder:text-[var(--color-text-muted)] focus:border-[var(--color-guinda)] focus:ring-2 focus:ring-[var(--color-guinda)]/20 data-[invalid]:border-red-500";
+    "w-full rounded-lg border border-[var(--color-border)] bg-white px-4 py-3 text-sm text-[var(--color-text)] outline-none transition placeholder:text-[var(--color-text-muted)] focus-visible:border-[var(--color-guinda)] focus-visible:ring-2 focus-visible:ring-[var(--color-guinda)] data-[invalid]:border-red-500";
 
   return (
     <div className="rounded-2xl border border-[var(--color-border)] bg-white p-6 shadow-[var(--shadow-card)] md:p-8">

@@ -10,12 +10,16 @@ export function TermsModalGate() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
+    let shouldOpen = true;
     try {
-      const accepted = window.localStorage.getItem(STORAGE_KEY);
-      if (!accepted) setOpen(true);
+      shouldOpen = !window.localStorage.getItem(STORAGE_KEY);
     } catch {
-      setOpen(true);
+      shouldOpen = true;
     }
+    // Gate client-only: localStorage no existe en SSR; el modal de términos debe
+    // abrir TRAS hidratar para no provocar mismatch. Es intencional, no un bug.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setOpen(shouldOpen);
   }, []);
 
   const handleAccept = () => {

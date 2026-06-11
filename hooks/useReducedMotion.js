@@ -1,25 +1,31 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
+
+const QUERY = "(prefers-reduced-motion: reduce)";
+
+function subscribe(callback) {
+  if (typeof window === "undefined" || !window.matchMedia) return () => {};
+  const mql = window.matchMedia(QUERY);
+  mql.addEventListener?.("change", callback);
+  return () => mql.removeEventListener?.("change", callback);
+}
+
+function getSnapshot() {
+  return window.matchMedia(QUERY).matches;
+}
+
+function getServerSnapshot() {
+  return false;
+}
 
 /**
  * Devuelve true si el usuario prefiere movimiento reducido del sistema.
- * Reactivo a cambios en tiempo real.
+ * Reactivo a cambios en tiempo real. SSR-safe vía useSyncExternalStore
+ * (sin setState dentro de un effect, sin mismatch de hidratación).
  */
 export function useReducedMotion() {
-  const [reduced, setReduced] = useState(false);
-
-  useEffect(() => {
-    if (typeof window === "undefined" || !window.matchMedia) return;
-    const mql = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setReduced(mql.matches);
-
-    const handler = (e) => setReduced(e.matches);
-    mql.addEventListener?.("change", handler);
-    return () => mql.removeEventListener?.("change", handler);
-  }, []);
-
-  return reduced;
+  return useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 }
 
 export default useReducedMotion;
