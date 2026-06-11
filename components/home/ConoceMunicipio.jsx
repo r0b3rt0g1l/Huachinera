@@ -10,7 +10,7 @@ import { municipalConfig } from "@/lib/municipalConfig";
 
 // Fallback estático del repo. Se usa cuando el CMS no responde o cuando
 // el municipio no ha subido una portada propia desde el admin.
-const DEFAULT_HERO_IMAGE = "/images/placeholder.jpg";
+const DEFAULT_HERO_IMAGE = "/images/huachinera/cultura-huachinera.jpg";
 const TEXT_SHADOW = "0 2px 8px rgba(0,0,0,0.7)";
 
 // Datos derivados de municipalConfig. Al llenar la config, esta sección se
@@ -176,13 +176,13 @@ export function ConoceMunicipio({ portadaUrl } = {}) {
           />
           {/* Fade-in superior: guinda profundo que se desvanece en los
               primeros ~150px para suavizar la unión con el bottom del Hero
-              (que termina en el mismo rgba(74,14,28,0.92) por su Capa 2).
+              (que termina en el mismo rgba(6,78,59,0.92) por su Capa 2).
               Sin esto, el ojo percibe un salto duro entre Hero y la imagen
               panorámica. Va ANTES del overlay negro existente para que el
               negro se aplique encima del fade-in. */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-x-0 top-0 h-32 md:h-40 bg-gradient-to-b from-[rgba(74,14,28,0.92)] to-transparent"
+            className="pointer-events-none absolute inset-x-0 top-0 h-32 md:h-40 bg-gradient-to-b from-[rgba(6,78,59,0.92)] to-transparent"
           />
           <div
             aria-hidden="true"
@@ -190,7 +190,7 @@ export function ConoceMunicipio({ portadaUrl } = {}) {
           />
           <div
             aria-hidden="true"
-            className="absolute inset-0 bg-[rgba(107,22,41,0.20)]"
+            className="absolute inset-0 bg-[rgba(5,150,105,0.20)]"
           />
         </div>
 

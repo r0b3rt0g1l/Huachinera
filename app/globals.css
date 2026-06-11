@@ -1,25 +1,27 @@
 @import "tailwindcss";
 
-/* Acento institucional dorado: ámbar oscuro (#B08824) y champagne (#D4B445).
-   Tono más sobrio y menos brillante que el Old Gold previo (#BF9B30).
-   Contraste AA Normal sobre guinda (~5.7:1) y guinda-deep (~7.8:1),
-   AA Large sobre blanco (~3:1) — usar solo como acento decorativo sobre
-   fondos claros, nunca como texto normal sobre blanco. */
+/* PALETA PROVISIONAL HUACHINERA (placeholder — colores oficiales pendientes de
+   la jefa). Los tokens legacy `guinda`/`dorado` conservan su nombre para no
+   tocar cada componente; ahora portan emerald (primario, #059669/#064E3B/#10B981)
+   y cyan (acento, #0891B2/#06B6D4). Cuando lleguen los colores oficiales, basta
+   actualizar estos valores en @theme y en lib/municipalConfig.js (paleta).
+   El cyan acento es decorativo (números, eyebrows, bordes, íconos, focus ring),
+   no texto normal sobre blanco. */
 
 @theme {
-  --color-guinda: #6B1629;
-  --color-guinda-deep: #4A0E1C;
-  --color-guinda-soft: #8A2A3D;
-  --color-dorado: #B08824;
-  --color-dorado-soft: #D4B445;
+  --color-guinda: #059669;
+  --color-guinda-deep: #064E3B;
+  --color-guinda-soft: #10B981;
+  --color-dorado: #0891B2;
+  --color-dorado-soft: #06B6D4;
 
   /* Botones CTA primarios (Home Hero, "Descubre el turismo", "Ver todas las
      acciones", "Ir al Hub de Transparencia"). Separado del --color-dorado
      decorativo (números, eyebrows, bordes, íconos, dots) para poder afinar
      el llamado a la acción sin afectar el resto de la paleta visual.
      Contraste guinda-deep sobre crema: ~16:1 (AAA holgado). */
-  --color-cta-bg: #F5F0E1;
-  --color-cta-text: #4A0E1C;
+  --color-cta-bg: #ECFDF5;
+  --color-cta-text: #064E3B;
   --color-cta-bg-hover: #FFFFFF;
   --color-text: #1A1A1A;
   --color-text-secondary: #4A4A4A;
@@ -27,16 +29,16 @@
   --color-bg: #FAFAFA;
   --color-surface: #FFFFFF;
   --color-border: #E5E5E5;
-  --color-cream: #F5F5DC;
+  --color-cream: #ECFDF5;
 
   --font-sans: var(--font-inter);
   --font-display: var(--font-playfair);
   --font-mono: var(--font-mono);
   --font-serif: var(--font-lora);
 
-  --shadow-nav: 0 4px 12px rgba(74, 14, 28, 0.08);
+  --shadow-nav: 0 4px 12px rgba(6,78,59, 0.08);
   --shadow-card: 0 2px 8px rgba(26, 26, 26, 0.06);
-  --shadow-card-hover: 0 8px 24px rgba(107, 22, 41, 0.12);
+  --shadow-card-hover: 0 8px 24px rgba(5,150,105, 0.12);
 }
 
 @layer base {

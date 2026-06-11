@@ -33,7 +33,7 @@ export function ScrollToTop({ threshold = 400 }) {
           transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
           whileHover={{ scale: 1.06 }}
           whileTap={{ scale: 0.94 }}
-          className="fixed bottom-8 right-8 z-50 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[var(--color-guinda)] text-white shadow-[0_10px_30px_-10px_rgba(74,14,28,0.45)] outline-none transition hover:bg-[var(--color-guinda-deep)] focus-visible:ring-2 focus-visible:ring-[var(--color-dorado)] focus-visible:ring-offset-2"
+          className="fixed bottom-8 right-8 z-50 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[var(--color-guinda)] text-white shadow-[0_10px_30px_-10px_rgba(6,78,59,0.45)] outline-none transition hover:bg-[var(--color-guinda-deep)] focus-visible:ring-2 focus-visible:ring-[var(--color-dorado)] focus-visible:ring-offset-2"
         >
           <ArrowUp className="h-6 w-6" aria-hidden="true" />
         </motion.button>

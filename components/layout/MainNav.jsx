@@ -44,7 +44,7 @@ export function MainNav() {
           aria-label={`Ir al inicio del ${identidad.nombreCompleto}`}
         >
           <Image
-            src="/escudo-placeholder.png"
+            src="/escudo-huachinera.png"
             alt=""
             width={64}
             height={64}

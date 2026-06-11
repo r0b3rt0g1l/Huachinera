@@ -77,7 +77,7 @@ export function AccionesRecientes({ noticias = [] }) {
               >
                 <Link
                   href={`/acciones-de-gobierno/noticias/${noticia.slug}`}
-                  className="flex h-full flex-col overflow-hidden rounded-2xl border border-[var(--color-dorado)]/30 bg-white shadow-[0_10px_30px_-10px_rgba(74,14,28,0.5)] transition duration-300 hover:-translate-y-1 hover:border-[var(--color-dorado)]/70 hover:shadow-[0_18px_40px_-12px_rgba(74,14,28,0.6)]"
+                  className="flex h-full flex-col overflow-hidden rounded-2xl border border-[var(--color-dorado)]/30 bg-white shadow-[0_10px_30px_-10px_rgba(6,78,59,0.5)] transition duration-300 hover:-translate-y-1 hover:border-[var(--color-dorado)]/70 hover:shadow-[0_18px_40px_-12px_rgba(6,78,59,0.6)]"
                 >
                   <div className="relative aspect-[16/10] w-full overflow-hidden bg-[var(--color-guinda-deep)]">
                     <Image

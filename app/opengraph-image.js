@@ -11,7 +11,7 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default async function OpenGraphImage() {
-  const escudoPath = join(process.cwd(), "public", "escudo-placeholder.png");
+  const escudoPath = join(process.cwd(), "public", "escudo-huachinera.png");
   const escudoBuffer = await readFile(escudoPath);
   const escudoDataUrl = `data:image/png;base64,${escudoBuffer.toString("base64")}`;
 
@@ -26,8 +26,8 @@ export default async function OpenGraphImage() {
           alignItems: "center",
           justifyContent: "center",
           background:
-            "linear-gradient(135deg, #6B1629 0%, #4A0E1C 100%)",
-          color: "#F5F5DC",
+            "linear-gradient(135deg, #059669 0%, #064E3B 100%)",
+          color: "#ECFDF5",
           padding: "80px",
           fontFamily: "Georgia, serif",
         }}
@@ -68,7 +68,7 @@ export default async function OpenGraphImage() {
               fontSize: 56,
               fontWeight: 700,
               letterSpacing: "-0.02em",
-              color: "#F5F5DC",
+              color: "#ECFDF5",
               textAlign: "center",
               lineHeight: 1.15,
               maxWidth: 1000,
@@ -84,7 +84,7 @@ export default async function OpenGraphImage() {
               fontSize: 24,
               fontWeight: 600,
               // Sincronizado con --color-dorado en app/globals.css.
-              color: "#BF9B30",
+              color: "#0891B2",
               letterSpacing: "0.16em",
               textTransform: "uppercase",
               display: "flex",

@@ -75,7 +75,7 @@ export function MobileMenu() {
                     aria-label="Ir al inicio"
                   >
                     <Image
-                      src="/escudo-placeholder.png"
+                      src="/escudo-huachinera.png"
                       alt=""
                       width={48}
                       height={48}

@@ -230,7 +230,7 @@ export function BannerCarousel({ items = [] }) {
                       width: isActive ? 32 : 8,
                       backgroundColor: isActive
                         ? "rgb(212, 160, 23)"
-                        : "rgba(74, 14, 28, 0.3)",
+                        : "rgba(6,78,59, 0.3)",
                     }}
                     transition={{
                       duration: reduce ? 0 : 0.3,

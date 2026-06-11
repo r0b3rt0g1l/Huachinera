@@ -9,6 +9,9 @@ const TIPO_LABEL = {
   sindica: "Sindicatura Municipal",
   regidor: "Regiduría",
   dif: "DIF Municipal",
+  secretario: "Secretaría del Ayuntamiento",
+  tesorero: "Tesorería Municipal",
+  contralor: "Contraloría Municipal",
 };
 
 function isPendingName(nombre) {

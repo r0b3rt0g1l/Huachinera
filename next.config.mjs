@@ -1,7 +1,9 @@
 /** @type {import('next').NextConfig} */
-// Cache buster: cambio de hash de config para forzar a Vercel a NO reusar
-// el cache del deploy previo (que estaba corrupto y causaba
-// "TypeError: path argument must be of type string" en modifyConfig).
+// Cache buster (rev huachinera-2026-06-11a): un cambio en este archivo fuerza a
+// Vercel a recompilar desde cero. Las NEXT_PUBLIC_* se hornean en build time, así
+// que si un deploy reusa cache viejo el slug/API_URL quedan incrustados con el
+// valor anterior. Si tras configurar las env vars el sitio sigue mostrando datos
+// viejos, sube este rev y haz un build fresco (no un redeploy del build previo).
 const nextConfig = {
   images: {
     remotePatterns: [
