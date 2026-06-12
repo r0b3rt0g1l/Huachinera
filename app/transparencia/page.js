@@ -59,9 +59,9 @@ const cards = [
   },
   {
     icon: <ExternalLink className={ICON_CLASS} aria-hidden="true" />,
-    label: "Portal de Transparencia",
-    description: `Información pública del ${municipalConfig.identidad.nombreOficial} en la plataforma de transparencia del Estado de Sonora.`,
-    href: municipalConfig.enlacesExternos.transparenciaAyuntamiento,
+    label: "Portal Estatal de Transparencia",
+    description: `Información pública del ${municipalConfig.identidad.nombreOficial} disponible en el Portal de Transparencia del Estado de Sonora.`,
+    href: municipalConfig.enlacesExternos.transparenciaSonora,
     external: true,
   },
 ];

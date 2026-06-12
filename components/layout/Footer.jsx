@@ -7,7 +7,11 @@ const accesoRapido = [
   { label: "Inicio", href: "/" },
   { label: "Gobierno", href: "/gobierno" },
   { label: "Acciones de Gobierno", href: "/acciones-de-gobierno" },
-  { label: "Transparencia", href: "/transparencia" },
+  {
+    label: "Transparencia",
+    href: municipalConfig.enlacesExternos.transparenciaSonora,
+    external: true,
+  },
   { label: "Turismo", href: "/turismo" },
   { label: "Contacto", href: "/contacto" },
 ];
