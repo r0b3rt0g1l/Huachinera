@@ -1,4 +1,5 @@
 import { buildMetadata } from "@/lib/seo";
+import { Breadcrumbs } from "@/components/seo/JsonLd";
 import { municipalConfig } from "@/lib/municipalConfig";
 import { getAllImagenes } from "@/lib/imagenesService";
 import { GaleriaGrid } from "@/components/galeria/GaleriaGrid";
@@ -16,6 +17,7 @@ export default async function GaleriaPage() {
 
   return (
     <main className="flex flex-1 flex-col">
+      <Breadcrumbs items={[{ name: "Inicio", path: "/" }, { name: "Galería", path: "/galeria" }]} />
       <section className="relative bg-[var(--color-guinda)] text-white">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
           <h1 className="font-display text-4xl font-bold text-[var(--color-cream)] md:text-5xl">

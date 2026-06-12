@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Calendar, Mountain, MapPin } from "lucide-react";
+import { ArrowRight, Calendar, Mountain, Users } from "lucide-react";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { hitos } from "@/lib/hitos";
 import { municipalConfig } from "@/lib/municipalConfig";
@@ -15,30 +15,32 @@ const TEXT_SHADOW = "0 2px 8px rgba(0,0,0,0.7)";
 
 // Datos derivados de municipalConfig. Al llenar la config, esta sección se
 // actualiza sola. Fallback "—" mientras el dato esté pendiente.
+const poblacion = municipalConfig.datos.poblacion2020;
+const altitud = municipalConfig.datos.altitudMedia;
 const features = [
   {
     icon: Calendar,
     label: "Fundación",
     value: municipalConfig.identidad.fundacion.anio ?? "—",
-    detail: "Año de fundación",
+    detail: "Pueblo de misión",
   },
   {
     icon: Calendar,
-    label: "Categoría municipal",
+    label: "Municipio libre",
     value: municipalConfig.identidad.municipioLibre ?? "—",
-    detail: "Municipio autónomo",
+    detail: "4 de abril de 1952",
   },
   {
-    icon: MapPin,
-    label: "Ubicación",
-    value: municipalConfig.identidad.estado,
-    detail: municipalConfig.identidad.ubicacionGeografica || "Ubicación geográfica",
+    icon: Users,
+    label: "Población",
+    value: poblacion ? `${poblacion.toLocaleString("es-MX")} hab` : "—",
+    detail: "Censo INEGI 2020",
   },
   {
     icon: Mountain,
-    label: "Identidad",
-    value: municipalConfig.identidad.identidadEconomica || "—",
-    detail: "Identidad económica",
+    label: "Altitud",
+    value: altitud ? `${altitud} msnm` : "—",
+    detail: "Altitud media municipal",
   },
 ];
 
@@ -87,7 +89,8 @@ function HeroBlock({ reduce }) {
           {municipalConfig.identidad.nombreOficial}
         </h2>
         <p className="mt-5 max-w-xl text-base text-white/85 lg:text-lg">
-          Reseña histórica en preparación.
+          Pueblo de misión de raíz ópata, fundado en 1645 en la Sierra Madre
+          Occidental.
         </p>
       </motion.div>
     </div>
@@ -217,12 +220,25 @@ export function ConoceMunicipio({ portadaUrl } = {}) {
                 </p>
                 <div className="mt-3 space-y-3 font-serif text-[15px] leading-snug text-white lg:text-base">
                   <p className="first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:font-display first-letter:text-6xl first-letter:font-bold first-letter:leading-[0.85] first-letter:text-[var(--color-dorado)]">
-                    La reseña histórica de {municipalConfig.identidad.nombreOficial} está
-                    en preparación.
+                    El territorio de Huachinera, en la Sierra Madre Occidental, fue
+                    habitado por los ópatas. En 1645 el misionero Cristóbal García
+                    fundó el pueblo de misión bajo el nombre de «Juan Evangelista de
+                    Huachinera»; el topónimo se interpreta como «Mesa de la Huata
+                    Sagrada», por el árbol del que se extraía un aceite ritual.
                   </p>
                   <p>
-                    Completa la narrativa de esta sección y los hitos de la línea del
-                    tiempo en <code>lib/hitos.js</code>.
+                    El 3 de mayo de 1887 un fuerte terremoto sacudió la región y
+                    derribó casi todas las construcciones; con los años se levantó el
+                    Templo de San Ignacio de Loyola, hoy patrono del pueblo. El 4 de
+                    abril de 1952 Huachinera se erigió como municipio libre e
+                    independiente, al separarse de Bacerac.
+                  </p>
+                  <p>
+                    Su vida económica gira en torno a la ganadería bovina y la
+                    agricultura de temporal. En 2002 se constituyó el Centro Artístico
+                    y Cultural de Huachinera (CACH), sede del Festival Luna de la
+                    Montaña, una de las expresiones culturales más representativas de
+                    la sierra sonorense.
                   </p>
                 </div>
               </motion.article>

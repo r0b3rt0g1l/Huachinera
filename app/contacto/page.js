@@ -1,5 +1,6 @@
 import { MessageSquare } from "lucide-react";
 import { buildMetadata } from "@/lib/seo";
+import { Breadcrumbs } from "@/components/seo/JsonLd";
 import { municipalConfig } from "@/lib/municipalConfig";
 import { ContactoForm } from "@/components/contacto/ContactoForm";
 import { ContactoInfo } from "@/components/contacto/ContactoInfo";
@@ -19,6 +20,7 @@ export default function ContactoPage() {
 
   return (
     <main className="flex flex-1 flex-col">
+      <Breadcrumbs items={[{ name: "Inicio", path: "/" }, { name: "Contacto", path: "/contacto" }]} />
       <header className="bg-[var(--color-bg)] border-b border-[var(--color-border)]">
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 md:py-16">
           <span className="inline-flex w-fit items-center gap-2 rounded-full border border-[var(--color-guinda)]/20 bg-[var(--color-guinda)]/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-guinda)]">

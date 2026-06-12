@@ -8,6 +8,8 @@ import { Footer } from "@/components/layout/Footer";
 import { ScrollToTop } from "@/components/ui/ScrollToTop";
 import { ToastProvider } from "@/components/ui/Toast";
 import { TermsModalGate } from "@/components/layout/TermsModalGate";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { governmentOrganizationLd } from "@/lib/jsonLd";
 import "./globals.css";
 
 const { nombreOficial, nombreCompleto, administracion } = municipalConfig.identidad;
@@ -40,9 +42,10 @@ export default function RootLayout({ children }) {
       className={`${playfair.variable} ${inter.variable} ${mono.variable} ${lora.variable}`}
     >
       <body className="min-h-dvh flex flex-col bg-[var(--color-bg)] text-[var(--color-text)] antialiased">
+        <JsonLd data={governmentOrganizationLd()} />
         <a
           href="#contenido-principal"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-md focus:bg-[var(--color-guinda)] focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white"
+          className="sr-only focus-visible:not-sr-only focus-visible:fixed focus-visible:left-4 focus-visible:top-4 focus-visible:z-[60] focus-visible:rounded-md focus-visible:bg-[var(--color-guinda)] focus-visible:px-4 focus-visible:py-2 focus-visible:text-sm focus-visible:font-semibold focus-visible:text-white"
         >
           Saltar al contenido principal
         </a>

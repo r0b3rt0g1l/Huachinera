@@ -10,7 +10,7 @@ const META = [
     eyebrow: `${municipalConfig.identidad.nombreCorto}, ${municipalConfig.identidad.estado}`,
     title: `Bienvenidos a ${municipalConfig.identidad.nombreCorto}`,
     subtitle:
-      "Descripción breve del municipio (en preparación).",
+      "Pueblo de misión de raíz ópata, fundado en 1645 en la Sierra Alta de Sonora.",
     cta: { label: "Conoce el Municipio", href: "/turismo" },
     align: "center",
   },

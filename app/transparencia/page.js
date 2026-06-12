@@ -6,6 +6,7 @@ import {
   ExternalLink,
 } from "lucide-react";
 import { buildMetadata } from "@/lib/seo";
+import { Breadcrumbs } from "@/components/seo/JsonLd";
 import { municipalConfig } from "@/lib/municipalConfig";
 import { HubCard } from "@/components/transparencia/HubCard";
 
@@ -58,16 +59,19 @@ const cards = [
   },
   {
     icon: <ExternalLink className={ICON_CLASS} aria-hidden="true" />,
-    label: "Portal Estatal de Transparencia",
-    description: `Información pública del ${municipalConfig.identidad.nombreOficial} disponible en el Portal de Transparencia del Estado.`,
-    href: municipalConfig.enlacesExternos.transparenciaSonora,
+    label: "Portal de Transparencia",
+    description: `Información pública del ${municipalConfig.identidad.nombreOficial} en la plataforma de transparencia del Estado de Sonora.`,
+    href: municipalConfig.enlacesExternos.transparenciaAyuntamiento,
     external: true,
   },
 ];
 
 export default function TransparenciaHubPage() {
+  // Defensa: oculta tarjetas externas sin href (evita <a href="null"> roto).
+  const visibleCards = cards.filter((c) => !c.external || Boolean(c.href));
   return (
     <main className="flex flex-1 flex-col">
+      <Breadcrumbs items={[{ name: "Inicio", path: "/" }, { name: "Transparencia", path: "/transparencia" }]} />
       <section
         aria-label="Hub de Transparencia"
         className="relative isolate overflow-hidden bg-[var(--color-guinda)] text-white"
@@ -95,7 +99,7 @@ export default function TransparenciaHubPage() {
           </div>
 
           <ul className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {cards.map((c, i) => (
+            {visibleCards.map((c, i) => (
               <li key={c.label} className="flex">
                 <HubCard
                   icon={c.icon}

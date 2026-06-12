@@ -60,6 +60,12 @@ export function AccionesRecientes({ noticias = [] }) {
           </Link>
         </div>
 
+        {noticias.length === 0 ? (
+          <div className="mt-10 rounded-2xl border border-dashed border-[var(--color-dorado)]/30 bg-white/5 px-6 py-12 text-center text-sm text-[var(--color-cream)]/85">
+            Próximamente publicaremos las acciones, comunicados y obras del
+            Gobierno Municipal.
+          </div>
+        ) : (
         <motion.ul
           initial="hidden"
           whileInView="visible"
@@ -120,6 +126,7 @@ export function AccionesRecientes({ noticias = [] }) {
             );
           })}
         </motion.ul>
+        )}
       </div>
 
       {/* Transición Acciones → Footer: últimos 100px funden a guinda profundo (T30) */}

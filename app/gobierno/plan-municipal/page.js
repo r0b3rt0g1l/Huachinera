@@ -1,5 +1,6 @@
 import { Construction, Target, Users, Sprout, Heart, Building2 } from "lucide-react";
 import { buildMetadata } from "@/lib/seo";
+import { Breadcrumbs } from "@/components/seo/JsonLd";
 import { municipalConfig } from "@/lib/municipalConfig";
 
 export const metadata = buildMetadata({
@@ -44,6 +45,7 @@ const ejes = [
 export default function PlanMunicipalPage() {
   return (
     <main className="flex flex-1 flex-col">
+      <Breadcrumbs items={[{ name: "Inicio", path: "/" }, { name: "Gobierno", path: "/gobierno" }, { name: "Plan Municipal", path: "/gobierno/plan-municipal" }]} />
       <header className="bg-[var(--color-bg)] border-b border-[var(--color-border)]">
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 md:py-16">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-guinda)]">

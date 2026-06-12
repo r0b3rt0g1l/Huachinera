@@ -35,7 +35,7 @@ export function NavDropdown({
             rel="noopener noreferrer"
             aria-label={externalAriaLabel ?? label}
             className={cn(
-              "relative inline-flex h-full items-center gap-1.5 px-1 py-2 text-sm font-medium uppercase tracking-wider transition-colors duration-200 outline-none",
+              "relative inline-flex h-full items-center gap-1.5 px-1 py-2 text-sm font-medium uppercase tracking-wider transition-colors duration-200 outline-none focus-visible:rounded-md focus-visible:ring-2 focus-visible:ring-[var(--color-dorado)] focus-visible:ring-offset-2",
               triggerColor,
             )}
           >
@@ -66,7 +66,7 @@ export function NavDropdown({
                 : undefined
             }
             className={cn(
-              "relative inline-flex h-full items-center gap-1 px-1 py-2 text-sm font-medium uppercase tracking-wider transition-colors duration-200 outline-none",
+              "relative inline-flex h-full items-center gap-1 px-1 py-2 text-sm font-medium uppercase tracking-wider transition-colors duration-200 outline-none focus-visible:rounded-md focus-visible:ring-2 focus-visible:ring-[var(--color-dorado)] focus-visible:ring-offset-2",
               triggerColor,
               externalHref && "px-1",
             )}

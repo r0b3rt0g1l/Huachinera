@@ -1,4 +1,5 @@
 import { buildMetadata } from "@/lib/seo";
+import { Breadcrumbs } from "@/components/seo/JsonLd";
 import { municipalConfig } from "@/lib/municipalConfig";
 import { getNoticiasAll, comunicados } from "@/lib/noticiasService";
 import { NoticiasTabs } from "@/components/noticias/NoticiasTabs";
@@ -16,6 +17,7 @@ export default async function AccionesDeGobiernoPage() {
 
   return (
     <main className="flex flex-1 flex-col">
+      <Breadcrumbs items={[{ name: "Inicio", path: "/" }, { name: "Acciones de Gobierno", path: "/acciones-de-gobierno" }]} />
       <header className="bg-[var(--color-bg)] border-b border-[var(--color-border)]">
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 md:py-16">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-guinda)]">
