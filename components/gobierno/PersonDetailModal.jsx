@@ -14,6 +14,7 @@ const TIPO_LABEL = {
   secretario: "Secretaría del Ayuntamiento",
   tesorero: "Tesorería Municipal",
   contralor: "Contraloría Municipal",
+  cabildo: "Otras áreas",
 };
 
 function isPendingName(nombre) {
