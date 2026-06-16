@@ -68,7 +68,7 @@ export function MainNav() {
 
         <nav
           aria-label="Navegación principal"
-          className="hidden items-stretch gap-7 lg:flex"
+          className="hidden items-stretch gap-5 lg:flex"
         >
           {navItems.map((item) =>
             item.children ? (

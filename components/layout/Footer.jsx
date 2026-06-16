@@ -13,6 +13,7 @@ const accesoRapido = [
     external: true,
   },
   { label: "Turismo", href: "/turismo" },
+  { label: "Galería", href: "/galeria" },
   { label: "Contacto", href: "/contacto" },
 ];
 

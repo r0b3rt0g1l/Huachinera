@@ -14,7 +14,7 @@ export function NavLink({ href, label, className }) {
     <Link
       href={href}
       className={cn(
-        "relative inline-flex h-full items-center px-1 py-2 text-sm font-medium uppercase tracking-wider transition-colors duration-200",
+        "relative inline-flex h-full items-center whitespace-nowrap px-1 py-2 text-sm font-medium uppercase tracking-normal transition-colors duration-200",
         isActive
           ? "text-[var(--color-guinda)]"
           : "text-[var(--color-text)] hover:text-[var(--color-guinda)]",

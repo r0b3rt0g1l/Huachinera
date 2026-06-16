@@ -20,7 +20,7 @@ export const navItems = [
     ],
   },
   { label: "SEvAC", href: "/transparencia/sevac" },
-  { label: "Galería", href: "/galeria" },
+  { label: "Acciones de Gobierno", href: "/acciones-de-gobierno" },
   { label: "Turismo", href: "/turismo" },
   { label: "Contacto", href: "/contacto" },
 ];
