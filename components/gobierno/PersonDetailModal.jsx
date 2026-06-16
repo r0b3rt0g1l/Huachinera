@@ -36,7 +36,13 @@ export function PersonDetailModal({ person, open, onOpenChange }) {
 
   if (!person) return null;
 
-  const tipoLabel = TIPO_LABEL[person.tipo] ?? "Cabildo";
+  const isOtrasAreas = person.tipo === "cabildo";
+  // Bucket "cabildo" (tipo=OTRO y tipos sin mapear): el eyebrow muestra el cargo
+  // real en lugar de "Otras áreas"; abajo se omite la línea de cargo para no
+  // duplicarlo. Fallback a "Otras áreas" si no hubiera cargo.
+  const tipoLabel = isOtrasAreas
+    ? person.cargo?.trim() || "Otras áreas"
+    : TIPO_LABEL[person.tipo] ?? "Cabildo";
   const isPending = isPendingName(person.nombre);
   // Cuando el nombre es placeholder no calculamos iniciales (saldrían "[P")
   // ni mostramos el placeholder crudo. Mostramos "Por designar" en su lugar.
@@ -81,7 +87,7 @@ export function PersonDetailModal({ person, open, onOpenChange }) {
                   {displayNombre}
                 </Dialog.Title>
                 <Dialog.Description className="sr-only">
-                  {tipoLabel} · {person.cargo}
+                  {isOtrasAreas ? tipoLabel : `${tipoLabel} · ${person.cargo}`}
                 </Dialog.Description>
 
                 <Dialog.Close asChild>
@@ -145,9 +151,11 @@ export function PersonDetailModal({ person, open, onOpenChange }) {
                         {person.nombre}
                       </h2>
                     )}
-                    <p className="mt-1 text-sm font-medium text-[var(--color-text-secondary)]">
-                      {person.cargo}
-                    </p>
+                    {!isOtrasAreas && (
+                      <p className="mt-1 text-sm font-medium text-[var(--color-text-secondary)]">
+                        {person.cargo}
+                      </p>
+                    )}
                     {person.administracion && (
                       <p className="mt-0.5 text-xs uppercase tracking-widest text-[var(--color-text-muted)]">
                         Administración {person.administracion}

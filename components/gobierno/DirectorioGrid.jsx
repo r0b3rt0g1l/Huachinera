@@ -78,7 +78,13 @@ export function DirectorioGrid({ people = [] }) {
     <>
       <ul className="grid gap-5 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
         {people.map((person) => {
-          const tipoLabel = TIPO_LABEL[person.tipo] ?? "Cabildo";
+          // Bucket "cabildo" (tipo=OTRO y tipos sin mapear): mostramos el cargo
+          // real en vez de la etiqueta genérica "Otras áreas". Fallback a "Otras
+          // áreas" si no hubiera cargo (no debería: el backend exige cargo).
+          const tipoLabel =
+            person.tipo === "cabildo"
+              ? person.cargo?.trim() || "Otras áreas"
+              : TIPO_LABEL[person.tipo] ?? "Cabildo";
           const isPending = isPendingName(person.nombre);
           return (
             <li key={person.id} className="flex">
