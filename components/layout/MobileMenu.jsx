@@ -79,7 +79,7 @@ export function MobileMenu() {
                       alt=""
                       width={48}
                       height={48}
-                      className="h-10 w-10"
+                      className="h-10 w-10 object-contain"
                     />
                     <div className="leading-tight">
                       <p className="font-display text-sm font-bold">
