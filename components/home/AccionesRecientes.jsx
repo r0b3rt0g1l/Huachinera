@@ -74,7 +74,11 @@ export function AccionesRecientes({ noticias = [] }) {
           className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3"
         >
           {noticias.map((noticia) => {
-            const img = getNoticiaImageByCategoria(noticia.categoria);
+            const tieneFoto =
+              noticia.imagen && /^https?:\/\//.test(noticia.imagen);
+            const img = tieneFoto
+              ? { src: noticia.imagen, alt: noticia.titulo }
+              : getNoticiaImageByCategoria(noticia.categoria);
             return (
               <motion.li
                 key={noticia.slug}

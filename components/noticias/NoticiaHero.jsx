@@ -1,10 +1,28 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, Calendar, Tag, Clock } from "lucide-react";
 import { formatFechaLarga, tiempoLectura } from "@/lib/dates";
 
 export function NoticiaHero({ item, kind = "noticia", backHref = "/acciones-de-gobierno" }) {
+  const tieneFoto = item.imagen && /^https?:\/\//.test(item.imagen);
   return (
     <header className="relative isolate overflow-hidden bg-[var(--color-guinda-deep)] text-white">
+      {tieneFoto && (
+        <>
+          <Image
+            src={item.imagen}
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="absolute inset-0 -z-10 object-cover"
+          />
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 -z-10 bg-gradient-to-t from-[var(--color-guinda-deep)] via-[var(--color-guinda-deep)]/85 to-[var(--color-guinda-deep)]/65"
+          />
+        </>
+      )}
       <div
         aria-hidden="true"
         className="absolute inset-0 opacity-[0.07] [background-image:radial-gradient(circle_at_25%_30%,rgba(212,160,23,0.55)_0,transparent_50%),radial-gradient(circle_at_75%_70%,white_0,transparent_50%)]"
