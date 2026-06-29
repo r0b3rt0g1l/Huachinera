@@ -6,18 +6,14 @@ export const navItems = [
     label: "Gobierno",
     children: [
       { label: "Directorio", href: "/gobierno/directorio" },
-      { label: "Estructura Orgánica", href: "/gobierno/estructura-organica" },
+      { label: "Cabildo", href: "/gobierno/cabildo" },
       { label: "Plan Municipal", href: "/gobierno/plan-municipal" },
     ],
   },
   {
     label: "Transparencia",
-    externalHref: municipalConfig.enlacesExternos.transparenciaSonora,
-    externalAriaLabel: `Portal de Transparencia — ${municipalConfig.identidad.nombreOficial} (abre en nueva pestaña)`,
-    children: [
-      { label: "Información Pública", href: "/transparencia/informacion-publica" },
-      { label: "Leyes y Reglamentos", href: "/transparencia/leyes" },
-    ],
+    href: municipalConfig.enlacesExternos.transparenciaSonora,
+    external: true,
   },
   { label: "SEvAC", href: "/transparencia/sevac" },
   { label: "Acciones de Gobierno", href: "/acciones-de-gobierno" },

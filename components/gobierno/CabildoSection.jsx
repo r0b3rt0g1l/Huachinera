@@ -90,7 +90,7 @@ export function CabildoSection({ lista }) {
               </h3>
               <p className="mt-2 text-sm text-[var(--color-text-secondary)]">
                 {regidores.length === 1
-                  ? "Una regiduría propietaria del Cabildo Municipal"
+                  ? "Una reguría propietaria del Cabildo Municipal"
                   : `${regidores.length} regidurías propietarias del Cabildo Municipal`}
               </p>
             </header>

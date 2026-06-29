@@ -1,4 +1,4 @@
-import { getHeroSlides } from "@/lib/cms";
+import { getHeroSlides } from "@/lib/content";
 import { heroSlides as fallbackSlides } from "@/components/home/heroSlides";
 import { HeroCarousel } from "@/components/home/HeroCarousel";
 

@@ -39,9 +39,7 @@ export function RegidorCard({ regidor }) {
           {tipoCargo}
         </p>
       </div>
-
-      {/* Política Northa: cero contacto directo (sin mailto:/tel:). El portal
-          nunca publica correo/teléfono de funcionarios; ver lib/cms.js. */}
+      {/* Política Northa: cero contacto directo (sin mailto:/tel:). */}
     </motion.article>
   );
 }

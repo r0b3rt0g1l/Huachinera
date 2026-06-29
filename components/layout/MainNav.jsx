@@ -44,12 +44,12 @@ export function MainNav() {
           aria-label={`Ir al inicio del ${identidad.nombreCompleto}`}
         >
           <Image
-            src="/escudo-huachinera.png"
+            src="/escudo-baviacora-hd.png"
             alt=""
-            width={64}
-            height={64}
+            width={621}
+            height={717}
             priority
-            className="h-12 w-12 shrink-0 object-contain md:h-16 md:w-16"
+            className="h-12 w-auto shrink-0 md:h-16"
           />
           <div className="flex flex-col leading-tight">
             {/* Móvil (< 640px): nombre corto para no apretar al botón de menú.
@@ -84,6 +84,7 @@ export function MainNav() {
                 key={item.label}
                 href={item.href}
                 label={item.label}
+                external={item.external}
               />
             ),
           )}

@@ -65,7 +65,7 @@ export function PDFViewer({
                     <a
                       href={pdfUrl}
                       download
-                      className="inline-flex items-center gap-1.5 rounded-md border border-white/25 bg-white/10 px-2.5 py-1.5 text-xs font-semibold text-white transition hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-dorado)]"
+                      className="inline-flex min-h-[44px] items-center gap-1.5 rounded-md border border-white/25 bg-white/10 px-2.5 py-1.5 text-xs font-semibold text-white transition hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-dorado)]"
                       aria-label={`Descargar ${title}`}
                     >
                       <Download className="h-3.5 w-3.5" aria-hidden="true" />
@@ -75,7 +75,7 @@ export function PDFViewer({
                       href={pdfUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 rounded-md border border-white/25 bg-white/10 px-2.5 py-1.5 text-xs font-semibold text-white transition hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-dorado)]"
+                      className="inline-flex min-h-[44px] items-center gap-1.5 rounded-md border border-white/25 bg-white/10 px-2.5 py-1.5 text-xs font-semibold text-white transition hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-dorado)]"
                       aria-label="Abrir PDF en pestaña nueva"
                     >
                       <ExternalLink
@@ -88,7 +88,7 @@ export function PDFViewer({
                       <button
                         type="button"
                         aria-label="Cerrar visor de PDF"
-                        className="rounded-full p-1.5 text-white/80 transition hover:bg-white/15 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-dorado)]"
+                        className="inline-flex h-11 w-11 items-center justify-center rounded-full text-white/80 transition hover:bg-white/15 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-dorado)]"
                       >
                         <X className="h-5 w-5" aria-hidden="true" />
                       </button>

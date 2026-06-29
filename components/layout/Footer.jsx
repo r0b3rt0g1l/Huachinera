@@ -19,17 +19,21 @@ const accesoRapido = [
 
 const transparenciaLinks = [
   { label: "Hub de Transparencia", href: "/transparencia" },
-  { label: "Información Pública", href: "/transparencia/informacion-publica" },
-  { label: "Leyes y Reglamentos", href: "/transparencia/leyes" },
   { label: "SEvAC", href: "/transparencia/sevac" },
-  { label: "Estructura Orgánica", href: "/gobierno/estructura-organica" },
+  { label: "Cabildo", href: "/gobierno/cabildo" },
 ];
 
-export function Footer() {
+export function Footer({ overlay = false }) {
   const { identidad, contacto, redes, developer } = municipalConfig;
 
   return (
-    <footer className="bg-[var(--color-guinda-deep)] text-[var(--color-cream)]">
+    <footer
+      className={
+        overlay
+          ? "text-[var(--color-cream)]"
+          : "bg-[var(--color-guinda-deep)] text-[var(--color-cream)]"
+      }
+    >
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-2 lg:grid-cols-4">
         <FooterColumn title="Acceso rápido">
           <ul className="space-y-2 text-sm">
@@ -73,24 +77,6 @@ export function Footer() {
                 {contacto.direccionCompleta}
               </span>
             </li>
-            {/* Política Northa: cero contacto directo (sin tel:/mailto:). El
-                canal de contacto es el formulario. */}
-            <li className="flex items-start gap-2.5">
-              <Mail
-                aria-hidden="true"
-                className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-dorado)]"
-              />
-              <span className="text-[var(--color-cream)]/85">
-                Escríbenos por el{" "}
-                <Link
-                  href="/contacto"
-                  className="font-medium text-white underline underline-offset-4 hover:text-[var(--color-dorado)]"
-                >
-                  formulario de contacto
-                </Link>
-                .
-              </span>
-            </li>
             {contacto.horarios && (
               <li className="flex items-start gap-2.5">
                 <Clock
@@ -102,6 +88,19 @@ export function Footer() {
                 </span>
               </li>
             )}
+            {/* Política Northa: cero contacto directo. El contacto es por formulario. */}
+            <li className="flex items-start gap-2.5">
+              <Mail
+                aria-hidden="true"
+                className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-dorado)]"
+              />
+              <Link
+                href="/contacto"
+                className="text-[var(--color-cream)]/85 hover:text-white hover:underline underline-offset-4"
+              >
+                Escríbenos por el formulario
+              </Link>
+            </li>
           </ul>
         </FooterColumn>
 
@@ -147,7 +146,7 @@ export function Footer() {
             </Link>
           ) : (
             <p className="rounded-xl border border-dashed border-white/20 bg-white/5 p-3 text-xs italic text-[var(--color-cream)]/60">
-              Pronto compartiremos nuestros canales oficiales.
+              TODO_MUNICIPIO: redes_sociales — URL oficial pendiente.
             </p>
           )}
         </FooterColumn>

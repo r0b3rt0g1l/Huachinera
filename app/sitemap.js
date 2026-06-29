@@ -11,7 +11,7 @@ export default function sitemap() {
     { path: "/gobierno", priority: 0.9, changeFrequency: "monthly" },
     { path: "/gobierno/directorio", priority: 0.8, changeFrequency: "monthly" },
     {
-      path: "/gobierno/estructura-organica",
+      path: "/gobierno/cabildo",
       priority: 0.8,
       changeFrequency: "monthly",
     },
@@ -22,16 +22,6 @@ export default function sitemap() {
     },
     { path: "/acciones-de-gobierno", priority: 0.9, changeFrequency: "daily" },
     { path: "/transparencia", priority: 0.8, changeFrequency: "monthly" },
-    {
-      path: "/transparencia/informacion-publica",
-      priority: 0.7,
-      changeFrequency: "monthly",
-    },
-    {
-      path: "/transparencia/leyes",
-      priority: 0.6,
-      changeFrequency: "yearly",
-    },
     {
       path: "/transparencia/sevac",
       priority: 0.6,

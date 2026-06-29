@@ -4,6 +4,7 @@ import { join } from "node:path";
 import { municipalConfig } from "@/lib/municipalConfig";
 
 const { nombreCompleto, administracion } = municipalConfig.identidad;
+const { guinda, guindaProfundo, dorado } = municipalConfig.paleta;
 
 export const runtime = "nodejs";
 export const alt = `${nombreCompleto} · Administración ${administracion}`;
@@ -11,7 +12,7 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default async function OpenGraphImage() {
-  const escudoPath = join(process.cwd(), "public", "escudo-huachinera.png");
+  const escudoPath = join(process.cwd(), "public", "escudo-baviacora-hd.png");
   const escudoBuffer = await readFile(escudoPath);
   const escudoDataUrl = `data:image/png;base64,${escudoBuffer.toString("base64")}`;
 
@@ -25,9 +26,8 @@ export default async function OpenGraphImage() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          background:
-            "linear-gradient(135deg, #059669 0%, #064E3B 100%)",
-          color: "#ECFDF5",
+          background: `linear-gradient(135deg, ${guinda} 0%, ${guindaProfundo} 100%)`,
+          color: "#F5F5DC",
           padding: "80px",
           fontFamily: "Georgia, serif",
         }}
@@ -68,7 +68,7 @@ export default async function OpenGraphImage() {
               fontSize: 56,
               fontWeight: 700,
               letterSpacing: "-0.02em",
-              color: "#ECFDF5",
+              color: "#F5F5DC",
               textAlign: "center",
               lineHeight: 1.15,
               maxWidth: 1000,
@@ -83,8 +83,8 @@ export default async function OpenGraphImage() {
                 "system-ui, -apple-system, Segoe UI, Roboto, sans-serif",
               fontSize: 24,
               fontWeight: 600,
-              // Sincronizado con --color-dorado en app/globals.css.
-              color: "#0891B2",
+              // Dorado institucional (municipalConfig.paleta.dorado).
+              color: dorado,
               letterSpacing: "0.16em",
               textTransform: "uppercase",
               display: "flex",

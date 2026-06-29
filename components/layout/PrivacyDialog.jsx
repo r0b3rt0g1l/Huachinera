@@ -68,7 +68,7 @@ export function PrivacyDialog({ trigger }) {
                     <button
                       type="button"
                       aria-label="Cerrar aviso de privacidad"
-                      className="-mt-1 rounded-full p-1.5 text-white/80 transition hover:bg-white/15 hover:text-white"
+                      className="-mt-1 inline-flex h-11 w-11 items-center justify-center rounded-full text-white/80 transition hover:bg-white/15 hover:text-white"
                     >
                       <X className="h-5 w-5" aria-hidden="true" />
                     </button>

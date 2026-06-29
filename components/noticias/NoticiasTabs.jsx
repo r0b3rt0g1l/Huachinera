@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import * as Tabs from "@radix-ui/react-tabs";
 import { motion } from "framer-motion";
-import { Newspaper, Megaphone } from "lucide-react";
+import { Newspaper } from "lucide-react";
 import { NoticiasGrid } from "@/components/noticias/NoticiasGrid";
 import { cn } from "@/lib/cn";
 
@@ -14,15 +14,9 @@ const TAB_DEFS = [
     icon: Newspaper,
     basePath: "/acciones-de-gobierno/noticias",
   },
-  {
-    value: "comunicados",
-    label: "Comunicados",
-    icon: Megaphone,
-    basePath: "/acciones-de-gobierno/comunicados",
-  },
 ];
 
-export function NoticiasTabs({ noticias = [], comunicados = [] }) {
+export function NoticiasTabs({ noticias = [] }) {
   const [tab, setTab] = useState("noticias");
 
   const sortedNoticias = useMemo(
@@ -32,14 +26,6 @@ export function NoticiasTabs({ noticias = [], comunicados = [] }) {
       ),
     [noticias],
   );
-  const sortedComunicados = useMemo(
-    () =>
-      [...comunicados].sort(
-        (a, b) => new Date(b.fecha).getTime() - new Date(a.fecha).getTime(),
-      ),
-    [comunicados],
-  );
-
   return (
     <Tabs.Root value={tab} onValueChange={setTab}>
       <Tabs.List
@@ -80,13 +66,6 @@ export function NoticiasTabs({ noticias = [], comunicados = [] }) {
             items={sortedNoticias}
             basePath="/acciones-de-gobierno/noticias"
             emptyLabel="Aún no hay noticias publicadas."
-          />
-        </Tabs.Content>
-        <Tabs.Content value="comunicados">
-          <NoticiasGrid
-            items={sortedComunicados}
-            basePath="/acciones-de-gobierno/comunicados"
-            emptyLabel="Aún no hay comunicados publicados."
           />
         </Tabs.Content>
       </div>

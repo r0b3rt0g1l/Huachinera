@@ -1,11 +1,10 @@
 import Link from "next/link";
-import { Scale, FileText, Network, BarChart3, ArrowRight } from "lucide-react";
+import { Users, Network, BarChart3, ArrowRight } from "lucide-react";
 import { municipalConfig } from "@/lib/municipalConfig";
 
 const pillars = [
-  { icon: FileText, label: "Información Pública" },
+  { icon: Users, label: "Cabildo" },
   { icon: Network, label: "Estructura Orgánica" },
-  { icon: Scale, label: "Leyes y Reglamentos" },
   { icon: BarChart3, label: "SEvAC" },
 ];
 
@@ -45,12 +44,6 @@ export function TransparenciaCTA() {
                 aria-hidden="true"
                 className="h-4 w-4 transition-transform group-hover:translate-x-1"
               />
-            </Link>
-            <Link
-              href="/transparencia/informacion-publica"
-              className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/5 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition hover:border-white/60 hover:bg-white/15"
-            >
-              Solicitar información pública
             </Link>
           </div>
         </div>

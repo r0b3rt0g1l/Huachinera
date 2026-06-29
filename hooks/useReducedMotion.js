@@ -12,6 +12,7 @@ function subscribe(callback) {
 }
 
 function getSnapshot() {
+  if (typeof window === "undefined" || !window.matchMedia) return false;
   return window.matchMedia(QUERY).matches;
 }
 
@@ -21,8 +22,8 @@ function getServerSnapshot() {
 
 /**
  * Devuelve true si el usuario prefiere movimiento reducido del sistema.
- * Reactivo a cambios en tiempo real. SSR-safe vía useSyncExternalStore
- * (sin setState dentro de un effect, sin mismatch de hidratación).
+ * Reactivo a cambios en tiempo real, sin setState dentro de un efecto
+ * (useSyncExternalStore) y sin mismatch de hidratación (SSR = false).
  */
 export function useReducedMotion() {
   return useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);

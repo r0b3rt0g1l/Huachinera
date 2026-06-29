@@ -36,7 +36,7 @@ export function ScrollIndicator({ scrollYProgress, heroRef }) {
       </span>
       <motion.span
         aria-hidden="true"
-        className="flex h-9 w-9 items-center justify-center rounded-full border border-white/30 bg-white/10 backdrop-blur-sm text-white"
+        className="flex h-11 w-11 items-center justify-center rounded-full border border-white/30 bg-white/10 backdrop-blur-sm text-white"
         animate={
           reduce
             ? undefined

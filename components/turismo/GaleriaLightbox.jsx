@@ -58,7 +58,7 @@ export function GaleriaLightbox({ images = [] }) {
               />
               <span
                 aria-hidden="true"
-                className="absolute right-3 top-3 inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/15 text-white opacity-0 backdrop-blur-sm transition group-hover:opacity-100"
+                className="absolute right-3 top-3 inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/15 text-white opacity-0 backdrop-blur-sm transition group-hover:opacity-100"
               >
                 <ZoomIn className="h-4 w-4" />
               </span>

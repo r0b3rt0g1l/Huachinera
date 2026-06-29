@@ -6,6 +6,7 @@ import { ArrowLeft, AlertCircle, RotateCcw } from "lucide-react";
 // Error boundary por segmento (App Router). Captura excepciones de render en
 // el contenido de la página y muestra una pantalla digna con "Reintentar"
 // (reset) en lugar de una pantalla blanca. El layout (nav/footer) se conserva.
+// Usa los tokens --color-* de Baviácora (verde/oro), igual que not-found.js.
 export default function Error({ reset }) {
   return (
     <main className="relative isolate flex min-h-[70vh] flex-1 items-center justify-center overflow-hidden bg-[var(--color-guinda)] px-6 py-20 text-center text-white">

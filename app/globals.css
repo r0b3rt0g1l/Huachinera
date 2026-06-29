@@ -1,47 +1,49 @@
 @import "tailwindcss";
 
-/* PALETA PROVISIONAL HUACHINERA (placeholder — colores oficiales pendientes de
-   la jefa). Los tokens legacy `guinda`/`dorado` conservan su nombre para no
-   tocar cada componente; ahora portan emerald (primario, #059669/#064E3B/#10B981)
-   y cyan (acento, #0891B2/#06B6D4). Cuando lleguen los colores oficiales, basta
-   actualizar estos valores en @theme y en lib/municipalConfig.js (paleta).
-   El cyan acento es decorativo (números, eyebrows, bordes, íconos, focus ring),
-   no texto normal sobre blanco. */
+/* Acento institucional dorado: ámbar oscuro (#B08824) y champagne (#D4B445).
+   Tono más sobrio y menos brillante que el Old Gold previo (#BF9B30).
+   Contraste AA Normal sobre guinda (~5.7:1) y guinda-deep (~7.8:1),
+   AA Large sobre blanco (~3:1) — usar solo como acento decorativo sobre
+   fondos claros, nunca como texto normal sobre blanco. */
 
 @theme {
-  --color-guinda: #059669;
-  --color-guinda-deep: #064E3B;
-  --color-guinda-soft: #10B981;
-  --color-dorado: #0891B2;
-  --color-dorado-soft: #06B6D4;
-  /* Variante oscura del acento para TEXTO sobre fondos claros: cyan-700
-     (~4.7:1 sobre blanco = AA normal). La usan badges de sevac/turismo/leyes. */
-  --color-dorado-700: #0E7490;
+  /* Paleta blanco/cobre de Huachinera (var nombres heredados de la plantilla:
+     'guinda' = primario institucional = carbón, para títulos/encabezados;
+     'dorado' = acento de marca = cobre). Fondo base blanco. */
+  --color-guinda: #23292E;
+  --color-guinda-deep: #15191D;
+  --color-guinda-soft: #3A434B;
+  --color-dorado: #B5732E;
+  --color-dorado-soft: #C98A4E;
+  /* Cobre oscuro para TEXTO sobre fondos claros (contraste AA ≥4.5:1 sobre blanco).
+     Usado en badges/labels de turismo y SEvAC. */
+  --color-dorado-700: #7A4E1F;
 
   /* Botones CTA primarios (Home Hero, "Descubre el turismo", "Ver todas las
-     acciones", "Ir al Hub de Transparencia"). Separado del --color-dorado
-     decorativo (números, eyebrows, bordes, íconos, dots) para poder afinar
-     el llamado a la acción sin afectar el resto de la paleta visual.
-     Contraste guinda-deep sobre crema: ~16:1 (AAA holgado). */
-  --color-cta-bg: #ECFDF5;
-  --color-cta-text: #064E3B;
-  --color-cta-bg-hover: #FFFFFF;
+     acciones", "Ir al Hub de Transparencia"). Cobre oscuro con texto blanco
+     (~5.2:1 AA); hover en cobre brillante. Separado del --color-dorado decorativo
+     (números, eyebrows, bordes, íconos, dots). */
+  --color-cta-bg: #9C5E22;
+  --color-cta-text: #FFFFFF;
+  --color-cta-bg-hover: #B5732E;
   --color-text: #1A1A1A;
   --color-text-secondary: #4A4A4A;
   --color-text-muted: #6B6B6B;
-  --color-bg: #FAFAFA;
-  --color-surface: #FFFFFF;
+  --color-bg: #FFFFFF;
+  --color-surface: #FAFAF8; /* blanco-hueso para secciones alternas */
   --color-border: #E5E5E5;
-  --color-cream: #ECFDF5;
+  --color-cream: #F4EFE7;
 
+  /* Todo Inter (sin serifs): display y serif apuntan a Inter; mono usa stack
+     del sistema (JetBrains/Playfair/Lora removidas). */
   --font-sans: var(--font-inter);
-  --font-display: var(--font-playfair);
-  --font-mono: var(--font-mono);
-  --font-serif: var(--font-lora);
+  --font-display: var(--font-inter);
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-serif: var(--font-inter);
 
-  --shadow-nav: 0 4px 12px rgba(6,78,59, 0.08);
+  --shadow-nav: 0 4px 12px rgba(35,41,46,0.08);
   --shadow-card: 0 2px 8px rgba(26, 26, 26, 0.06);
-  --shadow-card-hover: 0 8px 24px rgba(5,150,105, 0.12);
+  --shadow-card-hover: 0 8px 24px rgba(35,41,46,0.12);
 }
 
 @layer base {
@@ -67,7 +69,7 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-playfair), Georgia, serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-weight: 700;
     line-height: 1.2;
     letter-spacing: -0.01em;

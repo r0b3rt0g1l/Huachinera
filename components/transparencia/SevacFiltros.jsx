@@ -4,18 +4,7 @@ import { useRouter, usePathname, useSearchParams } from "next/navigation";
 
 const TRIMESTRES = ["1", "2", "3", "4"];
 
-// Categorías canon de SEvAC. Mismas 5 que el datalist del SevacForm en el
-// admin (BOLETIN_OFICIAL, INFORME_TRIMESTRAL, CUENTA_PUBLICA,
-// PRESUPUESTO_EGRESOS, LEY_INGRESOS), con labels en español para la UI.
-const CATEGORIAS_SEVAC = [
-  { value: "BOLETIN_OFICIAL", label: "Boletín Oficial" },
-  { value: "INFORME_TRIMESTRAL", label: "Informe Trimestral" },
-  { value: "CUENTA_PUBLICA", label: "Cuenta Pública" },
-  { value: "PRESUPUESTO_EGRESOS", label: "Presupuesto de Egresos" },
-  { value: "LEY_INGRESOS", label: "Ley de Ingresos" },
-];
-
-export function SevacFiltros({ anioActivo, trimestreActivo, categoriaActiva }) {
+export function SevacFiltros({ anioActivo, trimestreActivo }) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -44,10 +33,9 @@ export function SevacFiltros({ anioActivo, trimestreActivo, categoriaActiva }) {
     router.push(pathname, { scroll: false });
   }
 
-  const hayFiltros = Boolean(anioActivo || trimestreActivo || categoriaActiva);
+  const hayFiltros = Boolean(anioActivo || trimestreActivo);
   const anioValue = anioActivo != null ? String(anioActivo) : "";
   const trimestreValue = trimestreActivo != null ? String(trimestreActivo) : "";
-  const categoriaValue = categoriaActiva || "";
 
   return (
     <div className="flex flex-wrap items-end gap-3 sm:gap-4">
@@ -78,22 +66,6 @@ export function SevacFiltros({ anioActivo, trimestreActivo, categoriaActiva }) {
           {TRIMESTRES.map((t) => (
             <option key={t} value={t}>
               {t}
-            </option>
-          ))}
-        </select>
-      </label>
-
-      <label className="flex flex-col gap-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
-        Categoría
-        <select
-          value={categoriaValue}
-          onChange={(e) => updateFilter("categoria", e.target.value)}
-          className="rounded-lg border border-[var(--color-border)] bg-white px-3 py-2 text-sm font-normal tracking-normal text-[var(--color-text)] transition focus:border-[var(--color-guinda)] focus:outline-none focus:ring-2 focus:ring-[var(--color-dorado)]/30"
-        >
-          <option value="">Todas</option>
-          {CATEGORIAS_SEVAC.map((c) => (
-            <option key={c.value} value={c.value}>
-              {c.label}
             </option>
           ))}
         </select>

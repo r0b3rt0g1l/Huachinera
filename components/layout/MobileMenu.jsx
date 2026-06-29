@@ -75,11 +75,11 @@ export function MobileMenu() {
                     aria-label="Ir al inicio"
                   >
                     <Image
-                      src="/escudo-huachinera.png"
+                      src="/escudo-baviacora-hd.png"
                       alt=""
-                      width={48}
-                      height={48}
-                      className="h-10 w-10 object-contain"
+                      width={621}
+                      height={717}
+                      className="h-10 w-auto"
                     />
                     <div className="leading-tight">
                       <p className="font-display text-sm font-bold">
@@ -94,7 +94,7 @@ export function MobileMenu() {
                     <button
                       type="button"
                       aria-label="Cerrar menú"
-                      className="inline-flex h-10 w-10 items-center justify-center rounded-md text-[var(--color-text)] transition-colors hover:bg-[var(--color-guinda)]/5 hover:text-[var(--color-guinda)]"
+                      className="inline-flex h-11 w-11 items-center justify-center rounded-md text-[var(--color-text)] transition-colors hover:bg-[var(--color-guinda)]/5 hover:text-[var(--color-guinda)]"
                     >
                       <X className="h-5 w-5" aria-hidden="true" />
                     </button>
@@ -149,6 +149,7 @@ export function MobileMenu() {
                           label={item.label}
                           pathname={pathname}
                           onClick={handleClose}
+                          external={item.external}
                         />
                       ),
                     )}
@@ -183,7 +184,7 @@ export function MobileMenu() {
                     </Link>
                   ) : (
                     <p className="mt-3 rounded-lg border border-dashed border-[var(--color-border)] bg-[var(--color-bg)] px-4 py-3 text-xs italic text-[var(--color-text-muted)]">
-                      Pronto compartiremos nuestros canales oficiales.
+                      TODO_MUNICIPIO: redes_sociales — URL oficial pendiente.
                     </p>
                   )}
                 </div>
@@ -196,22 +197,46 @@ export function MobileMenu() {
   );
 }
 
-function MobileLink({ href, label, pathname, onClick, indent = false }) {
-  const isActive =
-    href === "/" ? pathname === "/" : pathname?.startsWith(href);
+function MobileLink({ href, label, pathname, onClick, indent = false, external = false }) {
+  const isActive = external
+    ? false
+    : href === "/" ? pathname === "/" : pathname?.startsWith(href);
+
+  const classes = cn(
+    "flex items-center justify-between rounded-md py-3 text-base font-medium transition-colors",
+    indent ? "pl-7 pr-4" : "px-4",
+    isActive
+      ? "bg-[var(--color-guinda)] text-white"
+      : "text-[var(--color-text)] hover:bg-[var(--color-guinda)]/5 hover:text-[var(--color-guinda)]",
+  );
+
+  // Enlace externo (portal estatal de Sonora): pestaña nueva, con ícono.
+  if (external) {
+    return (
+      <li>
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={onClick}
+          className={classes}
+        >
+          <span>{label}</span>
+          <ExternalLink
+            aria-hidden="true"
+            className="h-4 w-4 shrink-0 text-[var(--color-text-muted)]"
+          />
+        </a>
+      </li>
+    );
+  }
 
   return (
     <li>
       <Link
         href={href}
         onClick={onClick}
-        className={cn(
-          "flex items-center justify-between rounded-md py-3 text-base font-medium transition-colors",
-          indent ? "pl-7 pr-4" : "px-4",
-          isActive
-            ? "bg-[var(--color-guinda)] text-white"
-            : "text-[var(--color-text)] hover:bg-[var(--color-guinda)]/5 hover:text-[var(--color-guinda)]",
-        )}
+        className={classes}
         aria-current={isActive ? "page" : undefined}
       >
         <span>{label}</span>

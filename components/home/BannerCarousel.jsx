@@ -50,7 +50,6 @@ export function BannerCarousel({ items = [] }) {
   );
 
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [snaps, setSnaps] = useState([]);
 
   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
@@ -61,12 +60,8 @@ export function BannerCarousel({ items = [] }) {
 
   useEffect(() => {
     if (!emblaApi) return;
+    // Estado por eventos (no síncrono en el effect). snaps = items.
     const onSelect = () => setSelectedIndex(emblaApi.selectedScrollSnap());
-    // Sync inicial del carrusel embla (sistema externo): se lee su snapshot al
-    // montar y se suscribe a "select"/"reInit". Patrón idiomático de embla.
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setSnaps(emblaApi.scrollSnapList());
-    onSelect();
     emblaApi.on("select", onSelect);
     emblaApi.on("reInit", onSelect);
     return () => {
@@ -215,7 +210,7 @@ export function BannerCarousel({ items = [] }) {
             aria-label="Selector de diapositiva"
             className="mt-5 flex justify-center gap-2"
           >
-            {snaps.map((_, index) => {
+            {items.map((_, index) => {
               const isActive = index === selectedIndex;
               return (
                 <button
@@ -233,7 +228,7 @@ export function BannerCarousel({ items = [] }) {
                       width: isActive ? 32 : 8,
                       backgroundColor: isActive
                         ? "rgb(212, 160, 23)"
-                        : "rgba(6,78,59, 0.3)",
+                        : "rgba(31,56,19,0.3)",
                     }}
                     transition={{
                       duration: reduce ? 0 : 0.3,

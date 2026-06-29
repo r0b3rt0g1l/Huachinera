@@ -12,7 +12,7 @@ export function PresidenteCard({ presidente }) {
     <motion.article
       whileHover={{ scale: 1.02 }}
       transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-      className="relative isolate mx-auto max-w-[480px] overflow-hidden rounded-2xl bg-gradient-to-br from-[#059669] to-[#064E3B] p-8 text-white shadow-[0_20px_60px_-15px_rgba(6,78,59,0.55)] md:p-12"
+      className="relative isolate mx-auto max-w-[480px] overflow-hidden rounded-2xl bg-gradient-to-br from-[var(--color-guinda)] to-[var(--color-guinda-deep)] p-8 text-white shadow-[0_20px_60px_-15px_rgba(31,56,19,0.55)] md:p-12"
     >
       <div
         aria-hidden="true"
@@ -52,8 +52,8 @@ export function PresidenteCard({ presidente }) {
           </p>
         </div>
 
-        {/* Política Northa: cero contacto directo (sin mailto:/tel:). El portal
-            nunca publica correo/teléfono de funcionarios; ver lib/cms.js. */}
+        {/* Política Northa: cero contacto directo. No se renderizan mailto:/tel:
+            aquí; el contacto institucional va por formulario / modal (directorio). */}
       </div>
     </motion.article>
   );
